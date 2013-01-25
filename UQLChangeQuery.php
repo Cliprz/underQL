@@ -222,7 +222,11 @@ class UQLChangeQuery extends UQLBase {
 
         return false;
     }
-
+	
+	public function underql_get_last_inserted_id()
+	{
+		return $this->um_query->underql_get_last_inserted_id();
+	}
     public function __destruct() {
         $this->um_query = null;
         $this->um_abstract_entity = null;
