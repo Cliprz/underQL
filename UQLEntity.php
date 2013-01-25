@@ -198,6 +198,11 @@ class UQLEntity extends UQLBase {
     public function underql_get_abstract_entity() {
         return $this->um_abstract_entity;
     }
+	
+	public function underql_get_last_inserted_id()
+	{
+		return $this->um_change->underql_get_last_inserted_id();
+	}
 
     public function __destruct() {
         $this->um_abstract_entity = null;
