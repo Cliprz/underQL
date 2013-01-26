@@ -86,7 +86,7 @@ class UQLRuleEngine extends UQLBase {
                 // message
                 $this->um_false_rule_flag = true;
             } else
-                $the_results [$rule_name] = $result;
+                $the_results [$rule_name] = true;//$result;
 
             // OK
         }
@@ -101,7 +101,7 @@ class UQLRuleEngine extends UQLBase {
     public function underql_run_engine() {
 
         if (! $this->um_values_map || $this->um_values_map->underql_get_count () == 0)
-            return null;
+            return true;
 
         $result = true;
 
@@ -109,7 +109,7 @@ class UQLRuleEngine extends UQLBase {
 
             $result = $this->underql_apply_rule ( $name, $value );
 
-            if ($result != UQL_RULE_SUCCESS)
+            if ($result != true /*!= UQL_RULE_SUCCESS*/)
                 $this->um_fail_rules_list->underql_add_element ( $name, $result );
         }
 
