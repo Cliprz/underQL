@@ -108,9 +108,11 @@ class UQLRuleEngine extends UQLBase {
         foreach ( $this->um_values_map->underql_get_map () as $name => $value ) {
 
             $result = $this->underql_apply_rule ( $name, $value );
-
-            if ($result != true /*!= UQL_RULE_SUCCESS*/)
+			
+			foreach($result as $key => $value){
+            if ($value != true /*!= UQL_RULE_SUCCESS*/)
                 $this->um_fail_rules_list->underql_add_element ( $name, $result );
+			}
         }
 
         if ($this->underql_are_rules_passed ())
