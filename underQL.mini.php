@@ -1676,7 +1676,7 @@ class underQL extends UQLBase {
         if (UQL_CONFIG_USE_INVOKE_CALL) {
             $php_ver = floatval ( PHP_VERSION );
             if ($php_ver < 5.3)
-                $this->underql_error ( 'underQL needs at least PHP 5.3' );
+                UQLBase::underql_error ( 'underQL needs at least PHP 5.3' );
         }
 
         $this->um_database_handle = new UQLConnection ( $host, $database_name, $user, $password, $charset );
@@ -1703,7 +1703,7 @@ class underQL extends UQLBase {
             @mysql_free_result ( $local_query_result );
 
         } else {
-            $this->underql_error ( mysql_error(/*$this->um_database_handle -> getConnectionHandle()*/) );
+            UQLBase::underql_error ( mysql_error(/*$this->um_database_handle -> getConnectionHandle()*/) );
         }
     }
 
@@ -1717,7 +1717,7 @@ class underQL extends UQLBase {
         }
 
         if (! in_array ( $entity_name, $this->um_entity_list ))
-            $this->underql_error ( $entity_name . ' is not a valid table name' );
+            UQLBase::underql_error ( $entity_name . ' is not a valid table name' );
 
         if (in_array ( $entity_name, $this->um_loaded_entity_list ))
             return;
