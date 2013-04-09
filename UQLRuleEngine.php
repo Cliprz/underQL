@@ -55,7 +55,7 @@ class UQLRuleEngine extends UQLBase {
         $the_results = array ();
 
         if ($rules == null)
-            return true;
+            return $the_results;
 
         foreach ( $rules->underql_get_map () as $rule_id => $rule_value ) {
 
