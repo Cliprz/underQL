@@ -68,8 +68,8 @@ define ( 'UQL_MODULE_CLASS_NAME', 'umodule_%s' );
 /* Database connection information */
 define ( 'UQL_DB_HOST', 'localhost' );
 define ( 'UQL_DB_USER', 'root' );
-define ( 'UQL_DB_PASSWORD', 'root' );
-define ( 'UQL_DB_NAME', 'abdullaheid_db' );
+define ( 'UQL_DB_PASSWORD', '' );
+define ( 'UQL_DB_NAME', 'my' );
 define ( 'UQL_DB_CHARSET', 'utf8' );
 
 define ( 'UQL_CONFIG_USE_INVOKE_CALL', true );

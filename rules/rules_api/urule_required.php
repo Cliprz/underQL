@@ -4,6 +4,6 @@ function urule_required($name, $value, $alias = null, $params = null) {
 	if(strlen(trim($value)) == 0)
 		return "$value is required";
 		
-	return true;
+	return UQL_RULE_SUCCESS;
 }
 ?>
