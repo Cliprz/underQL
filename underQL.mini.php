@@ -856,7 +856,10 @@ class UQLRuleEngine extends UQLBase {
         $the_results = array ();
 
         if ($rules == null)
+		{
+			$the_results[0] = true; /* There is no rules*/
             return $the_results;
+		} 
 
         foreach ( $rules->underql_get_map () as $rule_id => $rule_value ) {
 
@@ -909,10 +912,13 @@ class UQLRuleEngine extends UQLBase {
         foreach ( $this->um_values_map->underql_get_map () as $name => $value ) {
 
             $result = $this->underql_apply_rule ( $name, $value );
-			
-			foreach($result as $key => $value){
-            if ($value != true /*!= UQL_RULE_SUCCESS*/)
-                $this->um_fail_rules_list->underql_add_element ( $name, $result );
+		   
+			foreach($result as $key => $val){
+                	//echo $key. '=>'. $val. '<br />';
+                if ($val == 1 /*!= UQL_RULE_SUCCESS*/)
+				  continue;
+		        
+		        $this->um_fail_rules_list->underql_add_element ( $name, $result );
 			}
         }
 
@@ -920,6 +926,7 @@ class UQLRuleEngine extends UQLBase {
             return true;
 
         $the_map = $this->um_fail_rules_list->underql_get_map ();
+		//echo '<pre>'.var_dump($the_map).'</pre>';
         return new UQLRuleMessagesHandler ( $the_map );
     }
 
@@ -929,7 +936,6 @@ class UQLRuleEngine extends UQLBase {
     }
 
 }
-
 
 
 class UQLQuery extends UQLBase {
