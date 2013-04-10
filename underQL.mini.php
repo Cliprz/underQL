@@ -1151,7 +1151,6 @@ class UQLQueryPath extends UQLBase {
 }
 
 
-
 class UQLChangeQuery extends UQLBase {
 
     private $um_query;
