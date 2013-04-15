@@ -45,7 +45,8 @@ class UQLRuleMessagesHandler extends UQLBase {
     }
 
     public function at($field_name, $rule_name) {
-        return isset ( $this->um_messages [$field_name] [$rule_name] ) ;
+        return isset ( $this->um_messages [$field_name] [$rule_name] ) 
+                  && (is_string($this->um_messages [$field_name] [$rule_name])) ;
     }
 
     public function get($field_name, $rule_name) {

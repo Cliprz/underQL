@@ -23,6 +23,8 @@ $users_rule   ->_('add_alias','name','اسم المستخدم')
 		   
 $_('users');
 
+//insert update select delete
+
 $users->name = 'Saleh';
 $users->password = 'lrkjq43';
 $users->email = 'a@b.c';
