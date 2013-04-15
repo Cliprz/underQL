@@ -53,6 +53,22 @@ class UQLRuleMessagesHandler extends UQLBase {
         return $this->um_messages [$field_name] [$rule_name];
     }
 
+    public function getFirstError()
+	{
+		if(@count($this->um_messages) > 0)
+		{
+			foreach($this->um_messages as $key => $val)
+		     foreach($val as $k => $v)
+			 {
+			  if(!is_string($v))
+			   continue;
+			  return $v;
+			 }
+		}
+		else {
+			 return "";
+		}
+	}
     public function __destruct() {
         $this->um_messages = null;
     }
