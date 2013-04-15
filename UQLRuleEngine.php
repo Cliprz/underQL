@@ -79,7 +79,7 @@ class UQLRuleEngine extends UQLBase {
             if (@count ( $rule_value ['rule'] ) == 1) // the rule has no parameter(s)
                 $result = $rule_api_function ( $field_name, $value, $alias );
             else {
-                $params = array_alice ( $rule_value ['rule'] );
+                $params = array_slice ( $rule_value ['rule'] );
                 // remove rule name
                 $result = $rule_api_function ( $field_name, $value, $alias, $params );
             }
