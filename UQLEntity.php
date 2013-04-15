@@ -175,10 +175,14 @@ class UQLEntity extends UQLBase {
 	protected function underql_select_where_n($field_name, $value, $fields = '*') {
 		$field_object = $this -> um_abstract_entity -> underql_get_field_object($field_name);
 		if ($field_object != null) {
+			
+			  $val = strip_tags($value);
+			  $val = @mysql_real_escape_string($val);
+			  
 			if ($field_object -> numeric)
-				return $this -> underql_select($fields, "WHERE `$field_name` = $value");
+				return $this -> underql_select($fields, "WHERE `$field_name` = $val");
 			else
-				return $this -> underql_select($fields, "WHERE `$field_name` = '$value'");
+				return $this -> underql_select($fields, "WHERE `$field_name` = '$val'");
 		}
 
 		return false;
