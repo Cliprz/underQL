@@ -88,7 +88,7 @@ class UQLRuleEngine extends UQLBase {
             if ($result != UQL_RULE_SUCCESS) {
                 $the_results [$rule_name] = $result;
                 // message
-                $this->um_false_rule_flag = true;
+                $this->um_false_rule_flag = false;
             } else
                 $the_results [$rule_name] = true;//$result;
 

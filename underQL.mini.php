@@ -326,8 +326,6 @@ class UQLConnection extends UQLBase {
 
 }
 
-
-
 class UQLMap extends UQLBase {
 
     private $um_map_list;
