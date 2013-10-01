@@ -98,6 +98,10 @@ class UQLChangeQuery extends UQLBase {
 
 
         foreach ( $all_values as $key => $value ) {
+            
+            if($value == '') // this will fix the problem of bad SQL syntax
+                continue;
+            
             $fields .= "`$key`";
             $field_object = $this->um_abstract_entity->underql_get_field_object ( $key );
             if ($field_object->numeric)
